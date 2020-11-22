@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Skill_Group.Models.SkillGroup>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3 style="text-align: left; font: normal normal normal 14px/12px Lucida Console; letter-spacing: 0px; color: #BE1B35; opacity: 1;">Dashboard /</h3>
+<h2 style="text-align: left; font: normal normal normal 20px/12px Lucida Console; letter-spacing: 0px; color: #73737A; opacity: 1;">Skill Group </h2>
+<div class="input-group" style="width:371px; text-align:left">
+    <input type="text" class="form-control" placeholder="Search">
+    <div class="input-group-btn">
+        <button class="btn btn-default" type="button">
+            <i class="glyphicon glyphicon-search"></i>
+        </button>
+    </div>
+</div>
+<p style="text-align: right; font: normal normal normal 14px/12px Lucida Console; letter-spacing: 0px; color: #FFFFFF; opacity: 1;">
+    <button type="button" class="btn btn-danger" style="border-radius:20px;"><span class="glyphicon glyphicon-plus">&nbsp;</span>@Html.ActionLink("New Skill Group", "Create", "Interview", new { Style = "color:#FFFFFF" })</button>
+    <button type="button" class="btn" style="border-radius:20px;"><span class="glyphicon glyphicon-remove">&nbsp;</span>@Html.ActionLink("Delete Selected", "Delete", "Interview", new { Style = "color:#2D2121" })</button>
+    <button type="button" class="btn" style="border-radius:20px;"><span class="glyphicon glyphicon-option-vertical">&nbsp;</span>@Html.ActionLink("More Options", "#", "Interview", new { Style = "color:#2D2121" })</button>
+</p>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SkillGroupName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Assmode)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SkillGroupName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Skill)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assmode)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SkillGroupId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SkillGroupId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SkillGroupId })
+            </td>
+        </tr>
+    }
+
+</table>
